@@ -8,9 +8,8 @@
     </div>
 </template>
 <script>
-import axios from "axios"
 import Character from "./Character.vue";
-import { store } from "../store";
+import { store, getData } from "../store";
 export default {
     components:{ Character},
     data(){
@@ -20,14 +19,7 @@ export default {
     },
     created (){
         
-        this.store.loading = true;
-        axios.get("https://rickandmortyapi.com/api/character")
-        .then((resp) => {
-            store.charactersList = resp.data.results;
-            setTimeout(() => {        
-            this.store.loading = false;
-            }, 2000);
-        })
+       getData()
       
     }
     
