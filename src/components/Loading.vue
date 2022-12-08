@@ -18,6 +18,7 @@ export default {
 @use '../styles/partials/variables' as *;
 .loader {
     position: fixed;
+    z-index: 10000;
     top: 0;
     left: 0;
     display: flex;

@@ -5,9 +5,10 @@ import TheFooter from './components/TheFooter.vue';
 import CharactersList from './components/CharactersList.vue';
 import { store } from "./store";
 import Loading from './components/Loading.vue';
+import Pagination  from './components/Pagination.vue';
 
 export default{
-  components:{ TheHeader , Filter, TheFooter, CharactersList, Loading },
+  components:{ TheHeader , Filter, TheFooter, CharactersList, Loading, Pagination },
   data() {
     return {
       
@@ -27,7 +28,7 @@ export default{
       <div class="p-4">
         <CharactersList></CharactersList>
       </div>
-      <Transition name="fade">
+      <Transition>
         <Loading v-if="store.loading"></Loading>
       </Transition>
 
