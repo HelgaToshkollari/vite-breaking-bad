@@ -2,7 +2,7 @@
     <div class="py-3">
         <Pagination :page="store.page" @pageChange="onPageChange"></Pagination>
     </div>
-    <div class="row row-cols-1 row-cols-md-2 row-cols-lg-4  g-4 " >
+    <div class="row row-cols-1 row-cols-md-2 row-cols-lg-4 g-4 " >
         <div class="col" v-for="singleCharacter in store.charactersList ">
             <Character :character="singleCharacter"></Character>
         </div>
@@ -27,7 +27,7 @@ export default {
         onPageChange(newPage){
 
             store.page = newPage;
-            
+
             getData();
 
         }

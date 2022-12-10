@@ -1,7 +1,11 @@
 <template lang="">
-    <div class="d-flex justify-content-end">
+    <div class="d-flex justify-content-between align-items-center">
+        <div class="alert alert-info p-2">
+                sono stati trovati {{store.pageInfo.count}} elementi . stai visualizzando la pagina {{store.page}} di {{store.pageInfo.pages}}
+        </div> 
         <nav aria-label="Page navigation example">
-            <ul class="pagination">
+ 
+            <ul class="pagination ">
                 <li class="page-item">
                     <a class="page-link" href="#" aria-label="Previous" @click="onPrevClick">
                         <span aria-hidden="true">&laquo;</span>
@@ -25,6 +29,7 @@
     </div>
 </template>
 <script>
+import { store, } from "../store";
 export default {
     props:{
         page:{
@@ -35,6 +40,7 @@ export default {
     },
     data() {
         return {
+            store,
             
         }
     },

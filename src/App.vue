@@ -3,7 +3,7 @@ import TheHeader from './components/TheHeader.vue';
 import Filter from './components/Filter.vue';
 import TheFooter from './components/TheFooter.vue';
 import CharactersList from './components/CharactersList.vue';
-import { store } from "./store";
+import { getData, store } from "./store";
 import Loading from './components/Loading.vue';
 import Pagination  from './components/Pagination.vue';
 
@@ -11,11 +11,20 @@ export default{
   components:{ TheHeader , Filter, TheFooter, CharactersList, Loading, Pagination },
   data() {
     return {
-      
       store
       
     }
   },
+  methods:{
+    onFilter(filtersOn){
+      this.store.filtered = filtersOn;
+      
+      getData()
+     
+
+    }
+    
+  }
 }
 
 </script>
@@ -24,8 +33,8 @@ export default{
   <div class="m-bg">
     <TheHeader></TheHeader>
     <div class="container">
-      <Filter></Filter>
       <div class="p-4">
+        <Filter @filter="onFilter"></Filter>
         <CharactersList></CharactersList>
       </div>
       <Transition>
