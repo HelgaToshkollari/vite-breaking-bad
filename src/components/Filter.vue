@@ -23,7 +23,7 @@
         <div class="row py-2 d-flex justify-content-center">
             <div class="col-sm-6 text-center">
                 <button @click="onSearch" class="btn btn-warning text-white mx-2"><strong>Filter</strong></button>
-                <button @click="onSearch" class="btn btn-light text-warning mx-2"><strong>Reset</strong></button>
+                <button @click="onReset" class="btn btn-light text-warning mx-2"><strong>Reset</strong></button>
             </div> 
         </div>
         
@@ -48,9 +48,22 @@ export default {
     },
     methods:{
         onSearch(){
-            this.$emit("filter",{...this.filters})
+            this.$emit("filter",{...this.filters});
 
+        },
+        onReset(){
+
+            this.cleanData()
+            this.$emit("filter",{...this.filters});    
+        },
+        cleanData(){
+            this.filters.name = ""
+            this.filters.status = ""
+            this.filters.gender = ""
+            this.filters.species = ""
+            this.filters.type = ""
         }
+
 
 
     }
